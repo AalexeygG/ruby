@@ -1,14 +1,4 @@
-class Bird
-	def talk
-		puts "Chirp! Chirp!"
-	end
-	
-	def move(destination)
-		puts "Flying to the #{destination}."
-	end
-end
-
-class Dog
+class Animal
 	attr_reader :name, :age
 	
 	def name=(value)
@@ -36,9 +26,30 @@ class Dog
 	def move(destination)
 		puts "#{@name} runs to the #{destination}."
 	end
+	
+	def to_s
+		"#{@name}, #{@age}"
+	end
 end
 
-class Cat
+
+class Dog < Animal
+	def to_s
+		"#{@name} is the dog, #{@age}"
+	end
+end
+
+class Bird < Animal
+	def talk
+		puts "Chirp! Chirp!"
+	end
+	
+	def move(destination)
+		puts "Flying to the #{destination}."
+	end
+end
+
+class Cat < Animal
 	def talk
 		puts "Meow!"
 	end
@@ -48,9 +59,21 @@ class Cat
 	end
 end
 
-dog = Dog.new
-dog.name = "ALexandro"
-dog.age = 3
-dog.move("house")
-dog.talk
-dog.report_age
+class Armadillo < Animal
+	def move(destination)
+		puts "#{@name} unrolls!."
+		super
+	end
+end
+
+
+lucy = Dog.new
+lucy.name = "Lucy"
+lucy.age = 3
+
+puts lucy
+
+parrot = Bird.new
+parrot.name = "Parr"
+parrot.age = 1
+puts parrot
