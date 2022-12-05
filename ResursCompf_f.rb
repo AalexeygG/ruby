@@ -3,7 +3,7 @@ class RecursComp
     @str,@index = to_desired_view(str),0
     compileF
   end
-  
+
   private
 
   def to_desired_view(str)
@@ -19,11 +19,7 @@ class RecursComp
           end
           count += 2
         elsif str[count + 1] == "/"
-          count += 2
-          while str[count] != "+" or str[count] != "-" or str[count] != "%" or str[count] != "*" or str[count] != "/"
-            count += 1
-          end
-          count -= 1
+          break
         end
       end
       ans_str += str[count]
